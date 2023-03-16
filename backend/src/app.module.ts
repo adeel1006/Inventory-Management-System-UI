@@ -6,6 +6,7 @@ import { AuthModule } from './auth/auth.module';
 import { RolesModule } from './roles/roles.module';
 import { OrganizationModule } from './organization/organization.module';
 import { ComplaintModule } from './complaint/complaint.module';
+import { RequestModule } from './request/request.module';
 
 @Module({
   imports: [
@@ -24,7 +25,8 @@ import { ComplaintModule } from './complaint/complaint.module';
     AuthModule,
     RolesModule,
     OrganizationModule,
-    ComplaintModule
+    ComplaintModule,
+    RequestModule
   ],
   controllers: [],
   providers: [],

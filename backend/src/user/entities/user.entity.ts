@@ -1,6 +1,7 @@
+import { Complaint } from 'src/complaint/entities/complaint.entity';
 import { Organization } from 'src/organization/entities/organization.entity';
 import { Role } from 'src/roles/entities/role.entity';
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class User {
@@ -27,4 +28,8 @@ export class User {
 
   @ManyToOne(()=> Organization, (organization) => organization.user)
   organization: Organization;
+
+  @OneToMany(() => Complaint, (complaint) => complaint.user)
+  @JoinColumn({ name: 'userId', referencedColumnName: 'id' })
+  complaint: Complaint
 }
