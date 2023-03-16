@@ -22,22 +22,24 @@ export class UserService {
 
     const user = this.userRepo.create({
       ...createUserDto,
-      password: await bcrypt.hash(createUserDto.password, salt)
-    })
+      password: await bcrypt.hash(createUserDto.password, salt),
+    });
     return this.userRepo.save(user);
   }
 
   // Login User
   async login(user: User): Promise<any> {
     const { email, password } = user;
-    const userExists = await this.userRepo.findOne({ where: {email}, relations: {role: true} });
+    const userExists = await this.userRepo.findOne({
+      where: { email },
+      relations: { role: true },
+    });
 
     if (userExists && (await bcrypt.compare(password, userExists.password))) {
       const token = this.generateToken(userExists.id, userExists.role.role);
       return { user: userExists, token };
-    }
-    else{
-      return "Password did not match"
+    } else {
+      return 'Password did not match';
     }
   }
 
@@ -53,9 +55,9 @@ export class UserService {
 
   // update user
   async update(id: number, updateUserDto: UpdateUserDto) {
-    const user = await this.userRepo.findOneBy({id})
-    Object.assign(user, updateUserDto)
-    return this.userRepo.save(user)
+    const user = await this.userRepo.findOneBy({ id });
+    Object.assign(user, updateUserDto);
+    return this.userRepo.save(user);
   }
 
   // Delete user
@@ -67,15 +69,15 @@ export class UserService {
     const payload = { id, role };
     return this.jwtService.sign(payload);
   }
-  
+
   //  Sending otp on user's mail
   async sendOTP(email: string) {
-    const user = await this.userRepo.findOneBy({email});
+    const user = await this.userRepo.findOneBy({ email });
     user.otp = otp();
-    await this.userRepo.save(user)
-    
+    await this.userRepo.save(user);
+
     const transporter = nodemailer.createTransport({
-      service:"gmail",
+      service: 'gmail',
       auth: {
         user: 'abdullah.shahzad@gigalabs.co',
         pass: 'txancqknqojldumi',
@@ -83,33 +85,28 @@ export class UserService {
     });
 
     let info = {
-      from: '"Abdullah"', 
-      to: email, 
-      subject: 'Interview call', 
-      text: 'Your OTP for password reset is: ' + otp() 
+      from: '"Abdullah"',
+      to: email,
+      subject: 'Interview call',
+      text: 'Your OTP for password reset is: ' + otp(),
     };
 
     return transporter.sendMail(info);
   }
 
-
   // Reset Password
-  async resetPassword(otp: number, email: string, password: string){
-    
-    const user = await this.userRepo.findOneBy({email});
+  async resetPassword(otp: number, email: string, password: string) {
+    const user = await this.userRepo.findOneBy({ email });
     const salt = await bcrypt.genSalt();
 
-    if(otp === user.otp){
+    if (otp === user.otp) {
       user.password = await bcrypt.hash(password, salt);
-    user.otp = null;
-    await this.userRepo.save(user);
+      user.otp = null;
+      await this.userRepo.save(user);
 
-    return 'Password changed successfully'
+      return 'Password changed successfully';
+    } else {
+      return 'OTP did not match';
     }
-    else{
-      return "OTP did not match";
-    }   
   }
-
-
 }
