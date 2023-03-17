@@ -7,6 +7,8 @@ import { RolesModule } from './roles/roles.module';
 import { OrganizationModule } from './organization/organization.module';
 import { ComplaintModule } from './complaint/complaint.module';
 import { RequestModule } from './request/request.module';
+import { CategoryModule } from './category/category.module';
+import { VendorModule } from './vendor/vendor.module';
 
 @Module({
   imports: [
@@ -26,7 +28,9 @@ import { RequestModule } from './request/request.module';
     RolesModule,
     OrganizationModule,
     ComplaintModule,
-    RequestModule
+    RequestModule,
+    CategoryModule,
+    VendorModule
   ],
   controllers: [],
   providers: [],
