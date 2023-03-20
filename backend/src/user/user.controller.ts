@@ -1,5 +1,6 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards , Request} from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
+import { ProfileDto } from './dto/create-profile.dto';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './entities/user.entity';
@@ -26,6 +27,11 @@ export class UserController {
   // @UseGuards(AuthGuard('jwt'))
   create(@Body() createUserDto: CreateUserDto) {
     return this.userService.create(createUserDto);
+  }
+
+  @Post('/profile/:id')
+  editProfile(@Param('id') id: number, profileDto: ProfileDto){
+    return this.userService.editProfile(id, profileDto);
   }
 
   @Get('single/:id')

@@ -9,6 +9,7 @@ import { ComplaintModule } from './complaint/complaint.module';
 import { RequestModule } from './request/request.module';
 import { CategoryModule } from './category/category.module';
 import { VendorModule } from './vendor/vendor.module';
+import { ItemModule } from './item/item.module';
 
 @Module({
   imports: [
@@ -30,7 +31,8 @@ import { VendorModule } from './vendor/vendor.module';
     ComplaintModule,
     RequestModule,
     CategoryModule,
-    VendorModule
+    VendorModule,
+    ItemModule
   ],
   controllers: [],
   providers: [],

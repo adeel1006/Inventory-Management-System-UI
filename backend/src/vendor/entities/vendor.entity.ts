@@ -1,16 +1,19 @@
 import { Category } from "src/category/entities/category.entity";
-import { Column, Entity, JoinColumn, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, JoinTable, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Vendor {
 
     @PrimaryGeneratedColumn()
-    id: string;
+    id: number;
 
     @Column()
     name: string;
 
+    @Column()
+    contact: number;
+
     @ManyToMany(()=> Category, (category) => category.vendor)
-    @JoinColumn()
+    @JoinTable()
     category: Category[];
 }

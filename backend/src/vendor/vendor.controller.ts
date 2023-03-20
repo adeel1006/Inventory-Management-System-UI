@@ -7,7 +7,7 @@ import { UpdateVendorDto } from './dto/update-vendor.dto';
 export class VendorController {
   constructor(private readonly vendorService: VendorService) {}
 
-  @Post()
+  @Post('/new')
   create(@Body() createVendorDto: CreateVendorDto) {
     return this.vendorService.create(createVendorDto);
   }

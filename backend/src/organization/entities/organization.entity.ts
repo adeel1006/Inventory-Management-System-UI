@@ -1,3 +1,4 @@
+import { Category } from "src/category/entities/category.entity";
 import { User } from "src/user/entities/user.entity";
 import { Column, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
@@ -27,5 +28,8 @@ export class Organization {
     @OneToMany(() => User, (user) => user.organization)
     @JoinColumn({ name: 'organization_id', referencedColumnName: 'id' })
     user: User;
+
+    @OneToMany(() => Category, (category) => category.organization)
+    category: Category;
 
 }

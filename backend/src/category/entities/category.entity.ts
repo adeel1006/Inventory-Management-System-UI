@@ -1,3 +1,5 @@
+import { Item } from "src/item/entities/item.entity";
+import { Organization } from "src/organization/entities/organization.entity";
 import { Vendor } from "src/vendor/entities/vendor.entity";
 import { Column, Entity, JoinColumn, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
@@ -10,6 +12,10 @@ export class Category {
     @Column()
     name: string;
 
+    @ManyToOne(() => Organization, (org) => org.category)
+    @JoinColumn()
+    organization: Organization;
+
     @ManyToOne(() => Category, (category) => category.child)
     @JoinColumn()
     parent: Category;
@@ -19,4 +25,7 @@ export class Category {
 
     @ManyToMany(()=> Vendor, (vendor) => vendor.category)
     vendor: Vendor;
+
+    @OneToMany(() => Item, (item) => item.category)
+    item: Item;
 }   

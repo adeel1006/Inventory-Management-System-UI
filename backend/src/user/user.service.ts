@@ -8,6 +8,7 @@ import * as bcrypt from 'bcryptjs';
 import { JwtService } from '@nestjs/jwt';
 import * as nodemailer from 'nodemailer';
 import { otp } from 'src/utils/generateOtp';
+import { ProfileDto } from './dto/create-profile.dto';
 
 @Injectable()
 export class UserService {
@@ -41,6 +42,13 @@ export class UserService {
     } else {
       return 'Password did not match';
     }
+  }
+
+  // User Profile
+  async editProfile(id: number, profileDto: ProfileDto){
+    const user = await this.userRepo.findOneBy({id});
+    Object.assign(user, profileDto);
+    return this.userRepo.save(user);
   }
 
   // get all the created users
