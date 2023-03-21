@@ -20,15 +20,19 @@ export class OrganizationService {
     return this.organizationRepo.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} organization`;
+  async findOne(id: number) {
+    const org = await this.organizationRepo.findOne({where: {id}, relations: {user: true}});
+    return org;
   }
 
-  update(id: number, updateOrganizationDto: UpdateOrganizationDto) {
-    return `This action updates a #${id} organization`;
+  async update(id: number, updateOrganizationDto: UpdateOrganizationDto) {
+    const org  = await this.organizationRepo.findOneBy({id});
+    Object.assign(org, updateOrganizationDto);
+    return this.organizationRepo.save(org);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} organization`;
+  async remove(id: number) {
+    const org = await this.organizationRepo.findOneBy({id});
+    return this.organizationRepo.delete(org);
   }
 }

@@ -26,7 +26,7 @@ export class Organization {
     bio: string;
 
     @OneToMany(() => User, (user) => user.organization)
-    @JoinColumn({ name: 'organization_id', referencedColumnName: 'id' })
+    @JoinColumn()
     user: User;
 
     @OneToMany(() => Category, (category) => category.organization)

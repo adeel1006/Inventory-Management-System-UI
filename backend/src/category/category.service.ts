@@ -16,7 +16,7 @@ export class CategoryService {
     const parent = this.categoryRepo.create(createCategoryDto);
      await this.categoryRepo.save(parent);
 
-     for(let i = 0; i < createCategoryDto.subcategory.length; i++){
+     for(let i = 0; i < createCategoryDto.subcategory?.length; i++){
       const child = this.categoryRepo.create({name: createCategoryDto.subcategory[i].name, parent})
       await this.categoryRepo.save(child)
      }

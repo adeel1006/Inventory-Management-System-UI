@@ -1,15 +1,24 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import { CreateComplaintDto } from './dto/create-complaint.dto';
 import { UpdateComplaintDto } from './dto/update-complaint.dto';
+import { Complaint } from './entities/complaint.entity';
 
 @Injectable()
 export class ComplaintService {
+
+
+  constructor(@InjectRepository(Complaint) private readonly complainRepo : Repository<Complaint>){}
+
+
   create(createComplaintDto: CreateComplaintDto) {
-    return 'This action adds a new complaint';
+    const complain = this.complainRepo.create(createComplaintDto);
+    return this.complainRepo.save(complain);
   }
 
   findAll() {
-    return `This action returns all complaint`;
+    return this.complainRepo.find();
   }
 
   findOne(id: number) {
