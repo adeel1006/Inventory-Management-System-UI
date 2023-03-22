@@ -1,15 +1,15 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UserModule } from './user/user.module';
-import { AuthModule } from './auth/auth.module';
-import { RolesModule } from './roles/roles.module';
-import { OrganizationModule } from './organization/organization.module';
-import { ComplaintModule } from './complaint/complaint.module';
-import { RequestModule } from './request/request.module';
-import { CategoryModule } from './category/category.module';
-import { VendorModule } from './vendor/vendor.module';
-import { ItemModule } from './item/item.module';
+import { UserModule } from './modules/user/user.module';
+import { AuthModule } from './modules/auth/auth.module';
+import { RolesModule } from './modules/roles/roles.module';
+import { OrganizationModule } from './modules/organization/organization.module';
+import { ComplaintModule } from './modules/complaint/complaint.module';
+import { RequestModule } from './modules/request/request.module';
+import { CategoryModule } from './modules/category/category.module';
+import { VendorModule } from './modules/vendor/vendor.module';
+import { ItemModule } from './modules/item/item.module';
 
 @Module({
   imports: [
