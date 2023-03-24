@@ -55,7 +55,7 @@ width: 100%;
     width: 100%;
 }
 
-button{
+.user-profile-header > button{
     font-size: large;
     display: flex;
     align-items: center;

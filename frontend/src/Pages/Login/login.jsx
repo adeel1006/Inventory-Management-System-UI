@@ -1,8 +1,15 @@
 import React from "react";
 import "./login.css";
 import logo from '../../assets/images/logo.png';
+import { useNavigate } from "react-router-dom";
 
-export default function login() {
+export default function Login() {
+
+  const navigate = useNavigate();
+  const loginHandler = () => {
+   navigate('/dashboard')
+  }
+
   return (
     <div className="container">
       <div className="logo">
@@ -16,7 +23,7 @@ export default function login() {
           <input type="text" placeholder="Enter Email Address" />
           <label>Password</label>
           <input type="text" placeholder="Enter Password" />
-          <button type="submit" className="login-btn">Sign In</button>
+          <button type="submit" className="login-btn" onClick={loginHandler}>Sign In</button>
         </form>
       </div>
       <p>Forgot your Password? <a href="#">Reset Password</a></p>
