@@ -6,9 +6,9 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './entities/user.entity';
 import * as bcrypt from 'bcryptjs';
 import { JwtService } from '@nestjs/jwt';
-import * as nodemailer from 'nodemailer';
 import { otp } from 'src/utils/generateOtp';
 import { ProfileDto } from './dto/create-profile.dto';
+import { notifyByEmail } from 'src/utils/emailNotification';
 
 @Injectable()
 export class UserService {
@@ -84,22 +84,9 @@ export class UserService {
     user.otp = otp();
     await this.userRepo.save(user);
 
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: 'abdullah.shahzad@gigalabs.co',
-        pass: 'txancqknqojldumi',
-      },
-    });
-
-    let info = {
-      from: '"Abdullah"',
-      to: email,
-      subject: 'Interview call',
-      text: 'Your OTP for password reset is: ' + otp(),
-    };
-
-    return transporter.sendMail(info);
+    const message = 'Your OTP for password reset is: ' + otp();
+    const subj = 'OTP for password reset';
+    return notifyByEmail(email,subj, message);
   }
 
   // Reset Password

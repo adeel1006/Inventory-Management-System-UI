@@ -1,7 +1,7 @@
 import * as nodemailer from 'nodemailer';
 
 
-export const notify = (email: string, subj : string, txt : string) =>{
+export const notifyByEmail = (email: string, subj : string, txt : string) =>{
     
         const transporter = nodemailer.createTransport({
           service: 'gmail',

@@ -1,0 +1,65 @@
+.header-container{
+    display: flex;
+    background: white;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: .5% 5%;
+}
+
+.pages-header{
+    display: flex;
+    align-items: center;
+}
+
+.logo-header{
+    width: 15%;
+}
+
+.logo-header > img{
+width: 100%;
+}
+
+.pages-list{
+    margin-left: 10%;
+}
+
+.pages-list > a{
+    margin: 0% 5%;
+    color: gray;
+    text-decoration: none;
+    font-size: large;
+}
+
+.pages-list > a:active{
+    color: black;
+
+    text-decoration: underline blue;
+}
+
+.user-profile-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: 20%;
+}
+
+.image-header{
+    width: 15%;
+    overflow: hidden;
+    border-radius: 999px;
+}
+
+.image-header > img{
+    width: 100%;
+}
+
+button{
+    font-size: large;
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
