@@ -17,10 +17,10 @@ export default function Header() {
               <img src={logo} alt="logo"/>
             </div>
             <div className="pages-list">
-              <a href="#">Dashboard</a>
-              <a href="#">Organizations</a>
-              <a href="#">Admins</a>
-              <a href="#">Complaints</a>
+              <a href="/dashboard" className="page-btn">Dashboard</a>
+              <a href="/organizations" className="page-btn">Organizations</a>
+              <a href="#" className="page-btn">Admins</a>
+              <a href="#" className="page-btn">Complaints</a>
             </div>
           </div>
           <div className="user-profile-header">

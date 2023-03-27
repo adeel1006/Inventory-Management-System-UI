@@ -3,13 +3,29 @@
     background-color:#EAECEB  ;
 }
 
+.sub-heading{
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.pm-heading{
+    font-size: 2em;
+    font-weight: 600;
+}
+
+.gray-txt{
+    color: gray;
+}
+
+
 .dashboard-content{
     display: flex;
     flex-direction: column;
-    width: 85%;
+    width: 70%;
     background-color: white;
-    margin: 5% auto;
-    padding: 0% 2%;
+    margin: 3% auto;
+    margin-bottom: 0;
+    padding: 01% 2%;
     border-radius: 20px;
 }
 
@@ -17,18 +33,65 @@
     display: flex;
     width: 100%;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content:space-evenly;
+    border-bottom: 1px solid lightgray;
+    padding: 1% 0%;
 }
 
 .data{
     border-right: 1px solid lightgray;
-    padding: 0 5%;
+    padding: 0 3%;
     text-align:left;
+    
+}
+
+.d4{
+    border-right: none;
 }
 
 .data-figure{
     display: flex;
     align-items: center;
-    font-size: 1.5em;
+    font-size: 2.5em;
 }
 
+
+.card-graph{
+    margin: 5% 0%;
+    border-bottom: 1px solid lightgray;
+}
+.graph-header, .table-header{
+    margin-bottom: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.graph-left-buttons, .graph-right-buttons{
+width: 50%;
+display: flex;
+align-items: center;
+}
+
+.chart-btn{
+    display: flex;
+    align-items: center;
+    margin: 0% 2%;
+    background-color: white;
+    border: none;
+    color: gray;
+    cursor: pointer;
+}
+
+.graph-right-buttons{
+    justify-content: flex-end;
+}
+.swap-data-btn:active{
+    color: green;
+    text-decoration: underline;
+}
+
+.complaints-btn{
+    color: gray;
+    text-decoration: none;
+}

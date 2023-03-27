@@ -3,6 +3,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: white;
+    padding-bottom: 7%;
 }
 
 .logo{
@@ -10,6 +12,7 @@
 }
 
 .container-login{
+
     border-radius: 15px;
     margin: 1% 0;
     display: flex;
@@ -37,12 +40,12 @@ p{
     width: 100%;
 }
 
-label{
+.login-form label{
     color: gray;
     margin-top: 1%;
 }
 
-input{
+.login-form input{
     margin: 1% 0%;
     padding: 2%;
     border-radius: 10px;
