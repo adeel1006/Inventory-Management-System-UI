@@ -9,7 +9,7 @@
 }
 
 .pm-heading{
-    font-size: 2em;
+    font-size: 5rem;
     font-weight: 600;
 }
 
@@ -21,7 +21,7 @@
 .dashboard-content{
     display: flex;
     flex-direction: column;
-    width: 70%;
+    width: 85%;
     background-color: white;
     margin: 3% auto;
     margin-bottom: 0;
@@ -54,6 +54,9 @@
     align-items: center;
     font-size: 2.5em;
 }
+
+
+
 
 
 .card-graph{

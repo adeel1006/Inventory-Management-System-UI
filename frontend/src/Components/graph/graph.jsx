@@ -8,12 +8,13 @@ import {
   Tooltip,
   Legend,
   CartesianGrid,
+  ResponsiveContainer,
 } from "recharts";
 
 export default function MyChart() {
   const data = [
-    { name: "Jan", uv: 400, pv: 2400, amt: 2400 },
-    { name: "Feb", uv: 300, pv: 800, amt: 1400 },
+    { name: "Jan", uv: 400, pv: 200, amt: 2400 },
+    { name: "Feb", uv: 300, pv: 550, amt: 1400 },
     { name: "Mar", uv: 80, pv: 400, amt: 300 },
     { name: "Apr", uv: 200, pv: 400, amt: 200 },
     { name: "May", uv: 100, pv: 200, amt: 400 },
@@ -27,12 +28,15 @@ export default function MyChart() {
   ];
   return (
     <div>
-      <BarChart height={500} width={1350} data={data}>
+      <ResponsiveContainer width= "100%" height = {500}>
+      <BarChart data={data}>
         <XAxis dataKey="name" />
-        <YAxis />
+        <YAxis/>
         <Tooltip wrapperStyle={{ width: 100, backgroundColor: "#ccc" }} />
-        <Bar dataKey="uv" fill="#4583F5 " barSize={70} />
+        <Bar dataKey="uv" fill="#4583F5 " barSize={60} />
+        <Bar dataKey="pv" fill="seagreen" barSize={60} />
       </BarChart>
+      </ResponsiveContainer>
     </div>
   );
 }

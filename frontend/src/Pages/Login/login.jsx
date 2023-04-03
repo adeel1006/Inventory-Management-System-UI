@@ -11,7 +11,7 @@ export default function Login() {
   }
 
   return (
-    <div className="container">
+    <div className="login-container">
       <div className="logo">
         <img src={logo} alt="logo" />
       </div>

@@ -6,10 +6,13 @@ import logo from "../../assets/images/logo.png";
 import pp from "../../assets/images/pp.jpeg";
 import './header.css'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import LabTabs from "../tabs/tabs";
 
-export default function Header() {
+export default function Header(props) {
+  const role = props.user;
+
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1}}>
       <AppBar position="static">
         <Toolbar className="header-container">
           <div className="pages-header">
@@ -17,17 +20,14 @@ export default function Header() {
               <img src={logo} alt="logo"/>
             </div>
             <div className="pages-list">
-              <a href="/dashboard" className="page-btn">Dashboard</a>
-              <a href="/organizations" className="page-btn">Organizations</a>
-              <a href="#" className="page-btn">Admins</a>
-              <a href="#" className="page-btn">Complaints</a>
+              <LabTabs user = {role}/>
             </div>
           </div>
           <div className="user-profile-header">
             <div className="image-header">
             <img src={pp} alt="profilePic" />
             </div>
-            <button>Super Admin <ExpandMoreIcon/></button>
+            <button>{role}<ExpandMoreIcon/></button>
           </div>
         </Toolbar>
       </AppBar>

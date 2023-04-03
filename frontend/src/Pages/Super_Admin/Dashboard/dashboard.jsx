@@ -1,6 +1,5 @@
 import React from "react";
 import "./dashboard.css";
-import Header from "../../../Components/Header/header";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUpRounded";
 import DataTable from "../../../Components/table/table";
 import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
@@ -9,7 +8,6 @@ import MyChart from "../../../Components/graph/graph";
 export default function dashboard() {
   return (
     <div className="dashboard-container">
-      <Header />
       <div className="dashboard-content">
         <div className="card-header">
           <h1>Dashboard</h1>

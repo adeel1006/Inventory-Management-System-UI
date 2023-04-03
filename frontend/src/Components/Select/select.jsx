@@ -5,7 +5,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
 
-export default function SelectField() {
+export default function SelectField(props) {
   const [age, setAge] = React.useState('');
 
   const handleChange = (event) => {
@@ -13,8 +13,8 @@ export default function SelectField() {
   };
 
   return (
-    <FormControl sx={{ m: 1, minWidth: '30%' }} size="small">
-      <InputLabel id="demo-select-small">Search Location</InputLabel>
+    <FormControl sx={{ m: 1, minWidth: '20%' }} size="small">
+      <InputLabel id="demo-select-small">{props.placeHolder}</InputLabel>
       <Select
         labelId="demo-select-small"
         id="demo-select-small"

@@ -1,20 +1,23 @@
 .header-container{
     display: flex;
     background: white;
-    flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: .5% 5%;
+    padding: 0.2% 5%;
 }
 
 .pages-header{
+    /* width: 60%; */
     display: flex;
     align-items: center;
+
 }
 
 .logo-header{
-    width: 15%;
+    width: 10%;
+    padding: 0 2%;
     border-right: 1px solid lightgray;
+
 }
 
 .logo-header > img{
@@ -22,23 +25,11 @@ width: 100%;
 }
 
 .pages-list{
-    margin-left: 10%;
-}
-
-.page-btn{
-    margin: 0% 5%;
-    color: gray;
-    text-decoration: none;
-    font-size: large;
-}
-
-.page-btn:active{
-    color: black;
-
-    text-decoration: underline blue;
+    margin-left: 1%;
 }
 
 .user-profile-header{
+
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -47,7 +38,7 @@ width: 100%;
 }
 
 .image-header{
-    width: 15%;
+    width: 10%;
     overflow: hidden;
     border-radius: 999px;
 }
@@ -57,7 +48,7 @@ width: 100%;
 }
 
 .user-profile-header > button{
-    font-size: large;
+    font-size: medium;
     display: flex;
     align-items: center;
     border: none;
