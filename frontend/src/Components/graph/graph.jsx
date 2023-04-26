@@ -11,7 +11,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-export default function MyChart() {
+export default function MyChart(props) {
   const data = [
     { name: "Jan", uv: 400, pv: 200, amt: 2400 },
     { name: "Feb", uv: 300, pv: 550, amt: 1400 },
@@ -28,6 +28,18 @@ export default function MyChart() {
   ];
   return (
     <div>
+      {props.superAdmin && 
+      <ResponsiveContainer width= "100%" height = {500}>
+      <BarChart data={props.data}>
+        <XAxis dataKey="month" />
+        <YAxis/>
+        <Tooltip wrapperStyle={{ width: 100, backgroundColor: "#ccc" }} />
+        <Bar dataKey="new" fill="#4583F5 " barSize={60} />
+        
+      </BarChart>
+      </ResponsiveContainer>}
+
+      {props.admin && 
       <ResponsiveContainer width= "100%" height = {500}>
       <BarChart data={data}>
         <XAxis dataKey="name" />
@@ -36,7 +48,8 @@ export default function MyChart() {
         <Bar dataKey="uv" fill="#4583F5 " barSize={60} />
         <Bar dataKey="pv" fill="seagreen" barSize={60} />
       </BarChart>
-      </ResponsiveContainer>
+      </ResponsiveContainer>}
+      
     </div>
   );
 }

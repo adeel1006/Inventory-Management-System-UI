@@ -4,7 +4,7 @@ import DataCard from '../../../Components/DataCardDashboard/dataCard'
 import MyChart from '../../../Components/graph/graph'
 import { Button } from '@mui/material'
 import DataTable from '../../../Components/table/table'
-
+import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
 
 export default function AdminDashboard() {
   return (
@@ -20,16 +20,16 @@ export default function AdminDashboard() {
             <div className="inventory-chart">
                 <div className="chart-header">
                     <span chart-heading>Inventory Items</span>
-                    <Button style={{color: 'gray', fontSize: 'small'}}>Download report</Button>
+                    <Button style={{color: 'gray', fontSize: 'small'}}><FileDownloadOutlinedIcon/>Download report</Button>
                 </div>
-                <div className="chart"><MyChart/></div>
+                <div className="chart"><MyChart admin = {true}/></div>
             </div>
             <div className="complaints-chart">
                 <div className="chart-header">
                     <span className="chart-heading">Complaints</span>
-                    <Button style={{color: 'gray', fontSize: 'small'}}>Download report</Button>
+                    <Button style={{color: 'gray', fontSize: 'small'}}><FileDownloadOutlinedIcon/>Download report</Button>
                 </div>
-                <div className="chart"><MyChart/></div>
+                <div className="chart"><MyChart admin = {true}/></div>
             </div>
         </div>
         <div className="admin-complaints">

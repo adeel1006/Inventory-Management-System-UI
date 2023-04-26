@@ -1,21 +1,20 @@
-import { Button, Select, TextField } from "@mui/material";
+import {TextField } from "@mui/material";
 import React from "react";
 import SelectField from "../../../../Components/Select/select";
 import "./addOrg.css";
-import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
 import img from "../../../../assets/images/placeholder.jpg";
 import { useNavigate } from "react-router-dom";
+import BackBtn from "../../../../Components/Buttons/back";
+import SaveBtn from "../../../../Components/Buttons/save";
+import CancelBtn from "../../../../Components/Buttons/cancel";
 
 export default function AddOrgPage() {
-
   const navigate = useNavigate();
 
   const save = () => {
-    navigate('/orgDetails')
-  }
-
-
+    navigate("/orgDetails");
+  };
 
   // Styling for MUI TextFields
   const textFieldStyle = {
@@ -25,16 +24,13 @@ export default function AddOrgPage() {
   return (
     <div className="container">
       <div className="new-org-header">
-        <div className="left-btns header-org-btns">
-          <button className="back-btn">
-            <KeyboardBackspaceIcon fontSize="small" />
-            Back
-          </button>
+        <div className="left-header">
+          <BackBtn />
           <h1>Add New Organization</h1>
         </div>
-        <div className="right-btns header-org-btns">
-          <button className="cancel-btn btn">Cancel</button>
-          <button className="save-btn btn" onClick={save}>Save</button>
+        <div className="right-header">
+          <CancelBtn />
+          <SaveBtn onClick={save} />
         </div>
       </div>
       <div className="new-org-form">
@@ -76,7 +72,7 @@ export default function AddOrgPage() {
             type="text"
             rows="8"
             placeholder="Bio"
-            className="org-inp"
+            className="bio-field"
           ></textarea>
         </div>
         <div className="address data-field" style={{ border: "none" }}>
@@ -125,33 +121,6 @@ export default function AddOrgPage() {
             placeholder="Representative Contact"
             style={textFieldStyle}
           />
-        </div>
-        <div className="credentials">
-          <span className="div-heading">Credentials</span>
-          <p>
-            Below are the one time created credentials. These will be sent to
-            the mentioned emails
-          </p>
-          <div className="crd-email data-field" style={{ border: "none" }}>
-            <span className="form-left">Email Address</span>
-
-            <TextField
-              size="small"
-              type="text"
-              placeholder="Email Address"
-              style={textFieldStyle}
-            />
-          </div>
-          <div className="crd-password data-field" style={{ border: "none" }}>
-            <span className="form-left">Password</span>
-
-            <TextField
-              size="small"
-              type="text"
-              placeholder="Password"
-              style={textFieldStyle}
-            />
-          </div>
         </div>
       </div>
     </div>

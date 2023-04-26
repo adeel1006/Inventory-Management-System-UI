@@ -18,10 +18,21 @@ import Inventory from "./Pages/Admin/Inventory/inventory";
 import Requests from "./Pages/Admin/Requests/requests";
 import Returns from "./Pages/Admin/Returns/returns";
 import Vendors from "./Pages/Admin/Vendors/vendors";
+import AddItem from "./Pages/Admin/Inventory/AddItem/addItem";
+import AddCategory from "./Pages/Admin/Categories/AddCategory/addCategory";
+import AddVendor from "./Pages/Admin/Vendors/AddVendor/addVendor";
+import AddComplaint from "./Pages/Admin/Complaints/AddComplaint/addComplaint";
+import AddEmployee from "./Pages/Admin/Employees/AddEmployee/addEmployee";
+import ItemDetails from "./Pages/Admin/Inventory/itemDetails/itemDetails";
+import EmpDetails from "./Pages/Admin/Employees/EmployeeDetails/empDetails";
+import ReqDetails from "./Pages/Admin/Requests/RequestDetails/reqDetails";
+
+
+
 
 
 function App() {
-  const user = "Admin";
+  const user = "Super Admin";
 
   return (
     <div className="App">
@@ -47,12 +58,20 @@ function App() {
           <Routes>
             <Route path="/dashboard" element={<AdminDashboard />} />
             <Route path="/categories" element={<Categories />} />
+            <Route path="/addCategory" element={<AddCategory />} />
             <Route path="/complaints" element={<AdminComplaints />} />
+            <Route path="/addComplaint" element={<AddComplaint />} />
             <Route path="/employees" element={<EmployeesList />} />
+            <Route path="/addEmployee" element={<AddEmployee />} />
+            <Route path="/employeeDetails" element={<EmpDetails />} />
             <Route path="/inventory" element={<Inventory />} />
+            <Route path="/addItem" element={<AddItem />} />
+            <Route path="/itemDetails" element={<ItemDetails />} />
             <Route path="/requests" element={<Requests />} />
+            <Route path="/requestDetails" element={<ReqDetails />} />
             <Route path="/returns" element={<Returns />} />
             <Route path="/vendors" element={<Vendors />} />
+            <Route path="/addVendor" element={<AddVendor />} />
           </Routes>
         )}
       </Router>

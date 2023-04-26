@@ -23,6 +23,15 @@ export class Organization {
     address: string;
 
     @Column({nullable: true})
+    zip: number;
+
+    @Column({nullable: true})
+    city: string;
+
+    @Column({nullable: true})
+    country: string;
+
+    @Column({nullable: true})
     bio: string;
 
     @OneToMany(() => User, (user) => user.organization)
@@ -33,3 +42,5 @@ export class Organization {
     category: Category;
 
 }
+
+

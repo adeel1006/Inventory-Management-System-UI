@@ -13,7 +13,7 @@ export default function SelectField(props) {
   };
 
   return (
-    <FormControl sx={{ m: 1, minWidth: '20%' }} size="small">
+    <FormControl sx={{ m: 1, minWidth: '20%', margin : '0' }} size="small">
       <InputLabel id="demo-select-small">{props.placeHolder}</InputLabel>
       <Select
         labelId="demo-select-small"

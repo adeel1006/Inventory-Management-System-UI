@@ -19,3 +19,7 @@
 .complaints-chart, .inventory-chart{
     width: 50%;
 }
+
+.admin-comp-header {
+    padding: 2% 0%;
+}

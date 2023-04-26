@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "./dashboard.css";
-import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUpRounded";
 import DataTable from "../../../Components/table/table";
 import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
 import MyChart from "../../../Components/graph/graph";
+import DataCard from "../../../Components/DataCardDashboard/dataCard";
+import { OrganizationsData, AdminsData } from "../../../Constants/testProps";
 
-export default function dashboard() {
+export default function Dashboard() {
+  const [orgTable, setOrgTable] = useState(true);
+
   return (
     <div className="dashboard-container">
       <div className="dashboard-content">
@@ -13,85 +16,74 @@ export default function dashboard() {
           <h1>Dashboard</h1>
         </div>
         <div className="card-data">
-          <div className="org-data data">
-            <span className="sub-heading">
-              organizations
-            </span>
-            
-            <div className="data-figure">
-              <span className = 'pm-heading'>1500</span>
-              <ArrowDropUpIcon style={{ fontSize: "2em", color: "green" }} />
-            </div>
-            <span className="gray-txt">
-            XX new this month
-            </span>
-            
-          </div>
-          <div className="admin-data data">
-          <span className="sub-heading">
-            Admins
-            </span>
-            <div className="data-figure">
-              <span className = 'pm-heading'>2500</span>
-              <ArrowDropUpIcon style={{ fontSize: "2em", color: "green" }} />
-            </div>
-            <span className="gray-txt">
-            XX new this month
-            </span>
-          </div>
-          <div className="pen-data data">
-          <span className="sub-heading">
-          Pending Complaints
-          </span>
-            
-            <div className="data-figure">
-              <span className = 'pm-heading'>200</span>
-              <ArrowDropUpIcon style={{ fontSize: "2em", color: "red" }} />
-            </div>
-            <span className="gray-txt">
-            XX new this month
-            </span>
-          </div>
-          <div className="res-data data d4" >
-          <span className="sub-heading">
-            Resolved complaints
-            </span>
-            <div className="data-figure">
-              <span className = 'pm-heading'>15000</span>
-              <ArrowDropUpIcon style={{ fontSize: "2em", color: "green" }} />
-            </div>
-            <span className="gray-txt">
-            XX new this month
-            </span>
-            
-          </div>
+          <DataCard
+            title="Organizations"
+            amount={1500}
+            tagline="500 new organizations added this month"
+          />
+          <DataCard
+            title="Admins"
+            amount={3200}
+            tagline="500 new admins added this month"
+          />
+          <DataCard
+            title="Pending Complaints"
+            amount={200}
+            tagline="40 pending complaints this month"
+            redIcon={true}
+          />
+          <DataCard
+            title="Resolved Complaints"
+            amount={3200}
+            tagline="1500 complaints resolved this month"
+            noBorder={true}
+          />
         </div>
         <div className="card-graph">
           <div className="graph-header">
             <div className="graph-left-buttons">
-            <span className="sub-heading">
-              Analytics
-              </span>
+              <span className="sub-heading">Analytics</span>
               <button className="rep-download chart-btn">
                 <FileDownloadOutlinedIcon />
                 Download Report
               </button>
             </div>
             <div className="graph-right-buttons">
-              <button className="chart-btn swap-data-btn">Organizations</button>
-              <button className="chart-btn swap-data-btn">Admins</button>
+              <button
+                className="chart-btn swap-data-btn"
+                onClick={() => setOrgTable(true)}
+                style={
+                  orgTable
+                    ? { color: "seagreen", textDecoration: "underline" }
+                    : { color: "gray", textDecoration: "none" }
+                }
+              >
+                Organizations
+              </button>
+              <button
+                className="chart-btn swap-data-btn"
+                onClick={() => setOrgTable(false)}
+                style={
+                  !orgTable
+                    ? { color: "seagreen", textDecoration: "underline" }
+                    : { color: "gray", textDecoration: "none" }
+                }
+              >
+                Admins
+              </button>
             </div>
           </div>
           <div className="graph">
-            <MyChart />
+            {orgTable && <MyChart superAdmin={true} data={OrganizationsData} />}
+            {!orgTable && <MyChart superAdmin={true} data={AdminsData} />}
           </div>
         </div>
         <div className="card-table">
           <div className="table-header">
-          <span className="sub-heading">
-            Recent Complaints
-            </span>
-            <a href="#" className="complaints-btn">See all</a>
+            <span className="sub-heading">Recent Complaints</span>
+            <a href="#" className="complaints-btn">
+              See all
+            </a>
           </div>
           <div className="table">
             <DataTable />

@@ -106,8 +106,7 @@
     margin: 1% 0;
     border-bottom: 1px solid gray;
 }
-.org-inp{
-    /* margin-left: 20%; */
+.bio-field{
     padding: 1%;
     border-radius: 10px;
     width: 30%;

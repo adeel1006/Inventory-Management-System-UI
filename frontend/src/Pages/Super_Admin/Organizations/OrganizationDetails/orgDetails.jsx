@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import "./orgDetails.css";
 import BasicMenu from "../../../../Components/DropMenu/menu";
-import BackArrow from "@mui/icons-material/KeyboardBackspaceOutlined";
 import img from "../../../../assets/images/placeholder.jpg";
-import { Button } from "@mui/material";
 import DataTable from "../../../../Components/table/table";
+import BackBtn from "../../../../Components/Buttons/back";
+
+
+
+
 
 export default function OrgDetails() {
   const [orgDet, setOrgDet] = useState(true);
@@ -13,10 +16,7 @@ export default function OrgDetails() {
   return (
     <div className="container">
       <div className="org-det-header">
-        <Button style={{ color: "gray" }}>
-          <BackArrow />
-          Back
-        </Button>
+        <BackBtn/>
         <BasicMenu />
       </div>
       <div className="org-details">

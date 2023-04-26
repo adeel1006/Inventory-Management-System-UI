@@ -11,7 +11,7 @@ export default function ComplaintDetails() {
         <div className="left-header-content">
           <Button style={{color: 'gray'}}><BackArrow/>Back</Button>
           <h1>Complaint ID : 1234</h1>
-          <div className="complain-status">Pending</div>
+          <div className="status">Pending</div>
         </div>
         <div className="right-header-content">
           <Button style={{backgroundColor: 'seagreen', color: 'white'}}>Mark as resolved</Button>

@@ -4,11 +4,10 @@ import SelectField from "../../../../Components/Select/select";
 import "./addAdmin.css";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
-import img from '../../../../assets/images/placeholder.jpg'
+import img from "../../../../assets/images/placeholder.jpg";
 import { useNavigate } from "react-router-dom";
 
 export default function AddAdmin() {
-
   const navigate = useNavigate();
 
   // Styling for MUI TextFields
@@ -17,8 +16,8 @@ export default function AddAdmin() {
   };
 
   const saveAdmin = () => {
-    navigate('/adminDetails');
-  }
+    navigate("/adminDetails");
+  };
 
   return (
     <div className="container">
@@ -32,7 +31,9 @@ export default function AddAdmin() {
         </div>
         <div className="right-btns header-adm-btns">
           <button className="cancel-btn btn">Cancel</button>
-          <button className="save-btn btn" onClick={saveAdmin}>Save</button>
+          <button className="save-btn btn" onClick={saveAdmin}>
+            Save
+          </button>
         </div>
       </div>
       <div className="new-adm-form">
@@ -67,13 +68,12 @@ export default function AddAdmin() {
             style={textFieldStyle}
           />
         </div>
-    
+
         <div className="org-name data-field">
-        <span className="form-left">Organization Name</span>    
-            <SelectField placeHolder={"Select Organization"} />
+          <span className="form-left">Organization Name</span>
+          <SelectField placeHolder={"Select Organization"} />
         </div>
-          
-        
+
         <div className="contact data-field">
           <span className="form-left">Contact Number</span>
           <TextField

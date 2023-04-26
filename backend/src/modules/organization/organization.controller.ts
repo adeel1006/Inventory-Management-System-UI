@@ -5,7 +5,7 @@ import { UpdateOrganizationDto } from './dto/update-organization.dto';
 import { AuthGuard } from '@nestjs/passport';
 
 
-@UseGuards(AuthGuard('jwt'))
+// @UseGuards(AuthGuard('jwt'))
 @Controller('organization')
 export class OrganizationController {
   constructor(private readonly organizationService: OrganizationService) {}
