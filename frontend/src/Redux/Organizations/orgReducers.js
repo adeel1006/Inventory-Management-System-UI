@@ -3,9 +3,6 @@ export const organizationHandler = (data = [], action) => {
     case "ShowAllOrganizations":
       return { organizationData: action.data };
 
-    case "ShowAllOrganizations":
-      return { organizationData: action.data };
-
     default:
       return data;
   }

@@ -20,14 +20,12 @@ function* addNew(payload) {
     city: data.city,
     country: data.country,
   });
-  window.localStorage.setItem("token", res.data.token);
-  window.localStorage.setItem("user", res.data.user);
   yield put({ type: "S", data: res.data.token });
 }
 
 function* OrganizationSaga() {
   yield takeEvery("GET_ALL_ORGANIZATIONS", getAll);
-  // yield takeEvery("ADD_NEW_ORGANIZATION", addNew);
+  yield takeEvery("ADD_NEW_ORGANIZATION", addNew);
 }
 
 export default OrganizationSaga;

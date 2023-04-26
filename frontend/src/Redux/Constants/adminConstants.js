@@ -1,0 +1,1 @@
+export const GET_ALL_ADMINS = "GET_ALL_ADMINS";

@@ -1,12 +1,10 @@
 import React from "react";
 import "./admins.css";
-import Header from "../../../../Components/Header/header";
 import SearchBar from "../../../../Components/SearchBar/searchBar";
 import SelectField from "../../../../Components/Select/select";
 import AddIcon from "@mui/icons-material/Add";
 import { Button } from "@mui/material";
 import DataTable from "../../../../Components/table/table";
-import PaginationRounded from "../../../../Components/pagination/pagination";
 import { useNavigate } from "react-router-dom";
 
 export default function Admins() {
@@ -35,9 +33,6 @@ export default function Admins() {
         </div>
         <div className="adm-table">
           <DataTable />
-        </div>
-        <div className="pagination">
-          <PaginationRounded data={5} />
         </div>
       </div>
     </div>
