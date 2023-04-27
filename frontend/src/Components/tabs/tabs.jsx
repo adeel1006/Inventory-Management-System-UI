@@ -16,7 +16,7 @@ export default function LabTabs(props) {
 
   return (
     <Box sx={{ width: "100%", typography: "body1" }}>
-      {props.user === "Super Admin" && (
+      {props.user === "superadmin" && (
         <TabContext value={value}>
           <Box sx={{}}>
             <TabList onChange={handleChange} aria-label="lab API tabs example">
@@ -28,7 +28,7 @@ export default function LabTabs(props) {
           </Box>
         </TabContext>
       )}
-      {props.user === "Admin" && (
+      {props.user === "admin" && (
         <TabContext value={value}>
           <Box sx={{}}>
             <TabList onChange={handleChange} aria-label="lab API tabs example">

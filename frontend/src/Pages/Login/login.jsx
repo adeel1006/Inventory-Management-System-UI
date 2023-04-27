@@ -1,18 +1,28 @@
 import React, { useState } from "react";
 import "./login.css";
-import logo from '../../assets/images/logo.png';
+import logo from "../../assets/images/logo.png";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { userLogin } from "../../Redux/Users/userActions";
+// import { outLocal } from "../../utils/HelperFunctions/userFunctions";
 
 export default function Login() {
+  const dispatch = useDispatch();
 
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [error, setError] = useState("");
 
   const navigate = useNavigate();
-  const loginHandler = () => {
-   navigate('/dashboard')
-  }
+
+  const loginHandler = (e) => {
+    e.preventDefault();
+    dispatch(userLogin(user));
+    navigate("/dashboard");
+  };
 
   return (
     <div className="login-container">
@@ -24,13 +34,25 @@ export default function Login() {
         <p>Enter your credentials to access your account</p>
         <form className="login-form">
           <label>Email</label>
-          <input type="text" placeholder="Enter Email Address" onChange={(e) => setEmail(e.target.value)} />
+          <input
+            type="text"
+            placeholder="Enter Email Address"
+            onChange={(e) => setUser({ ...user, email: e.target.value })}
+          />
           <label>Password</label>
-          <input type="text" placeholder="Enter Password" onChange={(e) => setEmail(e.target.value)} />
-          <button type="submit" className="login-btn" onClick={loginHandler}>Sign In</button>
+          <input
+            type="text"
+            placeholder="Enter Password"
+            onChange={(e) => setUser({ ...user, password: e.target.value })}
+          />
+          <button type="submit" className="login-btn" onClick={loginHandler}>
+            Sign In
+          </button>
         </form>
       </div>
-      <p>Forgot your Password? <a href="#">Reset Password</a></p>
+      <p>
+        Forgot your Password? <a href="#">Reset Password</a>
+      </p>
     </div>
   );
 }

@@ -12,7 +12,7 @@ export default function Header(props) {
   const role = props.user;
 
   return (
-    <Box sx={{ flexGrow: 1}}>
+    <Box sx={props.user ? { flexGrow: 1} : {display: 'none'}}>
       <AppBar position="static">
         <Toolbar className="header-container">
           <div className="pages-header">

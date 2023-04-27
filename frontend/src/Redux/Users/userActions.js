@@ -1,6 +1,9 @@
-export const Login = (data) => {
+import { LOGIN } from "../Constants/userConstants"
+
+
+export const userLogin = (data) => {
     return{
-        type : 'LOGIN',
+        type : LOGIN,
         data
     }
 }
