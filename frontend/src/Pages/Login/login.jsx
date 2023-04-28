@@ -21,7 +21,7 @@ export default function Login() {
   const loginHandler = (e) => {
     e.preventDefault();
     dispatch(userLogin(user));
-    navigate("/dashboard");
+    navigate("dashboard");
   };
 
   return (

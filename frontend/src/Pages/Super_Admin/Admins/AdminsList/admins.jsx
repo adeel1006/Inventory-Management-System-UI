@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./admins.css";
 import SearchBar from "../../../../Components/SearchBar/searchBar";
 import SelectField from "../../../../Components/Select/select";
@@ -6,12 +6,27 @@ import AddIcon from "@mui/icons-material/Add";
 import { Button } from "@mui/material";
 import DataTable from "../../../../Components/table/table";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { adminTableHeader } from "../../../../Constants/testProps";
+import { getAdmins } from "../../../../Redux/Users/userActions";
+import { userHandler } from "../../../../Redux/Users/userReducer";
 
 export default function Admins() {
   const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+  const data = useSelector((state) => state.userHandler.adminData);
+  
+  console.log(data);
+
   const addNew = () => {
     navigate("/newAdmin");
   };
+
+  useEffect(() => {
+    dispatch(getAdmins());
+  }, []);
+
   return (
     <div>
       <div className="adm-container">
@@ -32,7 +47,7 @@ export default function Admins() {
           </div>
         </div>
         <div className="adm-table">
-          <DataTable />
+          <DataTable tableHeader={adminTableHeader} data={data} />
         </div>
       </div>
     </div>

@@ -37,7 +37,7 @@ export class UserService {
     });
 
     if (userExists && (await bcrypt.compare(password, userExists.password))) {
-      const token = this.generateToken(userExists.id, userExists.role.role, userExists.organization.id);
+      const token = this.generateToken(userExists.id, userExists.role.role, userExists?.organization?.id);
       return { user: userExists, token };
     } else {
       return 'Password did not match';

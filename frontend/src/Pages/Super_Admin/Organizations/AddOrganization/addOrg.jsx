@@ -1,6 +1,5 @@
-import {TextField } from "@mui/material";
-import React from "react";
-import SelectField from "../../../../Components/Select/select";
+import { TextField } from "@mui/material";
+import React, { useMemo, useState } from "react";
 import "./addOrg.css";
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
 import img from "../../../../assets/images/placeholder.jpg";
@@ -8,18 +7,35 @@ import { useNavigate } from "react-router-dom";
 import BackBtn from "../../../../Components/Buttons/back";
 import SaveBtn from "../../../../Components/Buttons/save";
 import CancelBtn from "../../../../Components/Buttons/cancel";
-import { useDispatch, useSelector } from "react-redux";
-
-
-
-
+import { useDispatch } from "react-redux";
+import { addNewOrg } from "../../../../Redux/Organizations/orgActions";
+import Select from "react-select";
+import countryList from "react-select-country-list";
 
 export default function AddOrgPage() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const [organization, setOrganiztion] = useState({
+    name: "",
+    email: "",
+    bio: "",
+    address: "",
+    city: "",
+    country: "",
+    zip: 0,
+    representative: "",
+    contact: "",
+  });
 
   const save = () => {
+    dispatch(addNewOrg(organization));
     navigate("/orgDetails");
   };
+
+  // Select Country handlers
+
+  const options = useMemo(() => countryList().getData(), []);
 
   // Styling for MUI TextFields
   const textFieldStyle = {
@@ -45,9 +61,9 @@ export default function AddOrgPage() {
           </div>
           <div className="heading">
             <span className="div-heading">Organization logo</span>
-            <p>Upload logo with minimum resolutionof 800x800px</p>
+            <p>Upload logo with minimum resolution of 800x800px</p>
           </div>
-          <label for="upload-btn" className="upload-img-btn">
+          <label className="upload-img-btn">
             <DriveFolderUploadIcon />
             Upload
           </label>
@@ -59,6 +75,12 @@ export default function AddOrgPage() {
             size="small"
             placeholder="Name of Organizaton"
             style={textFieldStyle}
+            onChange={(e) =>
+              setOrganiztion({
+                ...organization,
+                name: e.target.value,
+              })
+            }
           ></TextField>
         </div>
         <div className="email data-field">
@@ -68,6 +90,12 @@ export default function AddOrgPage() {
             size="small"
             placeholder="Email Address"
             style={textFieldStyle}
+            onChange={(e) =>
+              setOrganiztion({
+                ...organization,
+                email: e.target.value,
+              })
+            }
           />
         </div>
         <div className="bio data-field">
@@ -78,6 +106,12 @@ export default function AddOrgPage() {
             rows="8"
             placeholder="Bio"
             className="bio-field"
+            onChange={(e) =>
+              setOrganiztion({
+                ...organization,
+                bio: e.target.value,
+              })
+            }
           ></textarea>
         </div>
         <div className="address data-field" style={{ border: "none" }}>
@@ -89,6 +123,12 @@ export default function AddOrgPage() {
               fullWidth
               placeholder="Address"
               style={{ margin: "1% 0" }}
+              onChange={(e) =>
+                setOrganiztion({
+                  ...organization,
+                  address: e.target.value,
+                })
+              }
             />
             <TextField
               size="small"
@@ -96,14 +136,36 @@ export default function AddOrgPage() {
               fullWidth
               placeholder="City"
               style={{ margin: "1% 0" }}
+              onChange={(e) =>
+                setOrganiztion({
+                  ...organization,
+                  city: e.target.value,
+                })
+              }
             />
-            <SelectField placeHolder={"Select Country"} />
+            <Select
+              placeholder="Select Country"
+              options={options}
+              value={organization.country}
+              onChange={(e) =>
+                setOrganiztion({
+                  ...organization,
+                  country: e.target?.value,
+                })
+              }
+            />
             <TextField
               size="small"
               type="text"
               fullWidth
               placeholder="Zip code"
               style={{ margin: "1% 0" }}
+              onChange={(e) =>
+                setOrganiztion({
+                  ...organization,
+                  zip: e.target.value,
+                })
+              }
             />
           </div>
         </div>
@@ -115,6 +177,12 @@ export default function AddOrgPage() {
             type="text"
             placeholder="Representative Name"
             style={textFieldStyle}
+            onChange={(e) =>
+              setOrganiztion({
+                ...organization,
+                representative: e.target.value,
+              })
+            }
           />
         </div>
         <div className="rep-contact data-field">
@@ -125,6 +193,12 @@ export default function AddOrgPage() {
             type="text"
             placeholder="Representative Contact"
             style={textFieldStyle}
+            onChange={(e) =>
+              setOrganiztion({
+                ...organization,
+                contact: e.target.value,
+              })
+            }
           />
         </div>
       </div>

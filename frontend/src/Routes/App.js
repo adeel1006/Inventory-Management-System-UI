@@ -28,40 +28,37 @@ import EmpDetails from "../Pages/Admin/Employees/EmployeeDetails/empDetails";
 import ReqDetails from "../Pages/Admin/Requests/RequestDetails/reqDetails";
 import ProtectedRoutes from "./protectedRoutes";
 import PublicRoutes from "./publicRoutes";
-import { outLocal } from "../utils/HelperFunctions/userFunctions";
+// import { outLocal } from "../utils/HelperFunctions/userFunctions";
 import { useSelector } from "react-redux";
-import { userHandler } from "../Redux/Users/userReducer";
+// import { userHandler } from "../Redux/Users/userReducer";
 
 function App() {
+  const user = useSelector((state) => state.userHandler.role);
+  // console.log(role)
 
-  const role = useSelector((state) => state.userHandler.role)
-  console.log(role)
-
-  
-  const user = "superadmin";
+  // const user = "superadmin";
 
   return (
     <div className="App">
-      
       <Router>
-      <Header user={user} />
+        <Header user={user} />
         <Routes>
           <Route element={<PublicRoutes />}>
             <Route path="/" element={<Login />} />
           </Route>
         </Routes>
-       
+
         {user === "superadmin" && (
           <Routes>
             <Route element={<ProtectedRoutes />}>
               <Route path="dashboard" element={<Dashboard />} />
               <Route path="organizations" element={<Organizations />} />
-              <Route path="admins" element={<Admins />} />
-              <Route path="complaints" element={<Complaints />} />
               <Route path="newOrg" element={<AddOrgPage />} />
-              <Route path="newAdmin" element={<AddAdmin />} />
               <Route path="orgDetails" element={<OrgDetails />} />
+              <Route path="admins" element={<Admins />} />
+              <Route path="newAdmin" element={<AddAdmin />} />
               <Route path="adminDetails" element={<AdminDetails />} />
+              <Route path="complaints" element={<Complaints />} />
               <Route path="complaintDetails" element={<ComplaintDetails />} />
             </Route>
           </Routes>

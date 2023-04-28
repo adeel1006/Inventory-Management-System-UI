@@ -5,8 +5,10 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './entities/user.entity';
 import { UserService } from './user.service';
+import { Serialize } from 'src/interceptors/serialize.interceptor';
+import { UserDto } from './dto/user.dto';
 
-@Controller('user')
+@Controller('users')
 export class UserController {
 
   constructor(private readonly userService: UserService){}
@@ -17,8 +19,9 @@ export class UserController {
   login(@Body() user: User): Promise<any> {
     return this.userService.login(user);
   }
-
-  @Get()
+  
+  @Serialize(UserDto)
+  @Get('/all')
   getUser(): any {
     return this.userService.findAll();
   }

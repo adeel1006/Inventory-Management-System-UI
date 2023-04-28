@@ -5,6 +5,9 @@ import SelectField from "../../../../Components/Select/select";
 import { Button } from "@mui/material";
 import DataTable from "../../../../Components/table/table";
 import { useNavigate } from "react-router-dom";
+import { complainTableHeader } from "../../../../Constants/testProps";
+
+
 
 export default function Complaints() {
   const navigate = useNavigate();
@@ -32,7 +35,7 @@ export default function Complaints() {
           </div>
         </div>
         <div className="cmp-table">
-          <DataTable />
+          <DataTable tableHeader = {complainTableHeader}/>
         </div>
       </div>
     </div>

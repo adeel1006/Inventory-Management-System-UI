@@ -2,6 +2,9 @@ import { Category } from "src/modules/category/entities/category.entity";
 import { User } from "src/modules/user/entities/user.entity";
 import { Column, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
+
+
+
 @Entity()
 export class Organization {
     @PrimaryGeneratedColumn()
@@ -17,7 +20,7 @@ export class Organization {
     representative: string;
 
     @Column({nullable: true})
-    contact: number;
+    contact: string;
 
     @Column({nullable: true})
     address: string;

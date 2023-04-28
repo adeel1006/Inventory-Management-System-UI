@@ -9,20 +9,39 @@ export const orgTableHeader = [
   "Action",
 ];
 
-export const OrganizationsData = [
-  { month: "Jan", new: 100 },
-  { month: "Feb", new: 200 },
-  { month: "Mar", new: 300 },
-  { month: "Apr", new: 400 },
-  { month: "May", new: 500 },
-  { month: "Jun", new: 600 },
-  { month: "Jul", new: 700 },
-  { month: "Aug", new: 800 },
-  { month: "Sep", new: 900 },
-  { month: "Oct", new: 1000 },
-  { month: "Nov", new: 1100 },
-  { month: "Dec", new: 1200 },
+export const complainTableHeader = [
+  "ID",
+  "Admin Name",
+  "Organization",
+  "Descrption",
+  "Submission Date",
+  "Status",
+  "Action"
 ];
+
+
+export const adminTableHeader = [
+  "ID",
+  "Name",
+  "Organization",
+  "Email",
+  "Contact No.",
+  "Action"
+];
+
+
+
+
+
+
+
+
+
+
+// export const orgTableData = ['id', 'name', 'address', 'email', 'contact', `/orgDetails/:${"" || id }`];
+export const adminTableData = ['id', 'username', 'organization', 'email', 'contact', '/adminDetails/'];
+export const complaintTableData = ['id', 'adminName', 'organization', 'description', 'submission', 'status', '/complaintDetails/'];
+export const OrganizationsData = ['id', 'name', 'address', 'email', 'contact', '/orgDetails/'];
 
 export const AdminsData = [
   { month: "Jan", new: 10 },

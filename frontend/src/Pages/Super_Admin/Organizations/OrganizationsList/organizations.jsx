@@ -15,7 +15,6 @@ export default function Organizations() {
   const organizations = useSelector(
     (state) => state.organizationHandler.organizationData
   );
-
   const navigate = useNavigate();
 
   const addNewOrg = () => {

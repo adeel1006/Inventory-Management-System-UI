@@ -5,6 +5,10 @@ import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
 import MyChart from "../../../Components/graph/graph";
 import DataCard from "../../../Components/DataCardDashboard/dataCard";
 import { OrganizationsData, AdminsData } from "../../../Constants/testProps";
+import { complainTableHeader } from "../../../Constants/testProps";
+
+
+
 
 export default function Dashboard() {
   const [orgTable, setOrgTable] = useState(true);
@@ -86,7 +90,7 @@ export default function Dashboard() {
             </a>
           </div>
           <div className="table">
-            <DataTable />
+            <DataTable tableHeader = {complainTableHeader}/>
           </div>
         </div>
       </div>

@@ -46,13 +46,9 @@ export default function DataTable(props) {
               )
               .map((row, index) => (
                 <TableRow key={row.name}>
-                  <TableCell align="center" component="th" scope="row">
-                    {row.id}
-                  </TableCell>
-                  <TableCell align="center">{row.name}</TableCell>
-                  <TableCell align="center">{row.address}</TableCell>
-                  <TableCell align="center">{row.email}</TableCell>
-                  <TableCell align="center">{row.contact}</TableCell>
+                  {Object.values(row).map((e) => (
+                    <TableCell align="center">{e}</TableCell>
+                  ))}
                   <TableCell align="center">
                     <a
                       href="#"

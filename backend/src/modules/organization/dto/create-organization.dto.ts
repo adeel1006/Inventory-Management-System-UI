@@ -2,7 +2,7 @@ export class CreateOrganizationDto {
   name: string;
   email: string;
   representative: string;
-  contact: number;
+  contact: string;
   address: string;
   bio: string;
   zip: number;
